@@ -24,6 +24,8 @@ class WebClasses:
 
     def create_classnames_property(self):
         classnames = self.get_classnames()
+        if len(classnames) is 0:
+            return ""
         prefix = "class=\""
         postfix = "\""
         class_properties = ""
