@@ -9,6 +9,10 @@ class BaseCalendar(Calendar):
         super().__init__(firstweekday)
         self.year = year
 
+    def get_weeks(self, month):
+        weeks = self.monthdays2calendar(year=self.year, month=month)
+        return weeks
+
     def print_month(self, month):
         # Get month information
         weeks = self.monthdays2calendar(year=self.year, month=month)
