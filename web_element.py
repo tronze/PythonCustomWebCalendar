@@ -13,7 +13,7 @@ class WebElement:
         self.content = ""
         self.classnames = WebClasses()
 
-    def set_text(self, text):
+    def set_content(self, text):
         self.content = text
 
     def get_element_properties(self):
