@@ -1,11 +1,7 @@
-from web_classes import WebClasses
+from .web_classes import WebClasses
 
 
 class WebElement:
-
-    DIV = 'div'
-    UL = 'ul'
-    LI = 'li'
 
     def __init__(self, element_type):
         super().__init__()
