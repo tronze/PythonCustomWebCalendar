@@ -1,3 +1,6 @@
+from web_classes import WebClasses
+
+
 class WebElement:
 
     DIV = 'div'
@@ -8,42 +11,14 @@ class WebElement:
         super().__init__()
         self.element_type = element_type
         self.content = ""
-        self.attr = {
-            'classnames': [],
-        }
+        self.classnames = WebClasses()
 
     def set_text(self, text):
         self.content = text
 
-    def add_classname(self, classname):
-        if classname is not None and classname is not "" and self.classname_exist(classname) is False:
-            self.attr.get('classnames').append(classname)
-
-    def get_classnames(self):
-        classnames = self.attr.get('classnames')
-        return classnames
-
-    def delete_classname(self, classname):
-        pass
-
-    def classname_exist(self, classname):
-        classnames = self.get_classnames()
-        return classname in classnames
-
-    def create_classnames_property(self):
-        classnames = self.get_classnames()
-        prefix = "class=\""
-        postfix = "\""
-        class_properties = ""
-        for classname in classnames:
-            if class_properties is "":
-                class_properties = classname
-            else:
-                class_properties += " " + classname
-        return prefix + class_properties + postfix
-
     def get_element_properties(self):
-        class_property = self.create_classnames_property()
+        classnames = self.classnames
+        class_property = classnames.create_classnames_property()
         s = "".join
         return s(" " + class_property)
 
