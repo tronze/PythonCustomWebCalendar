@@ -10,4 +10,4 @@ class TableElement(WebElement):
     TD = 'td'
 
     def __init__(self):
-        super().__init__(element_type=TableElement)
+        super().__init__(element_type=self.TABLE)
