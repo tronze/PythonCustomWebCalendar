@@ -13,8 +13,10 @@ class WebClasses:
         if classname is not None and classname is not "" and self.classname_exist(classname) is False:
             classnames.append(classname)
 
-    def delete_classname(self, classname):
-        pass
+    def remove_classname(self, classname):
+        classnames = self.get_classnames()
+        if self.classname_exist(classname):
+            classnames.remove(classname)
 
     def classname_exist(self, classname):
         classnames = self.get_classnames()
