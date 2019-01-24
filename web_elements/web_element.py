@@ -16,7 +16,9 @@ class WebElement:
         classnames = self.classnames
         class_property = classnames.create_classnames_property()
         s = "".join
-        return s(" " + class_property)
+        if class_property is not "":
+            class_property = " " + class_property
+        return s(class_property)
 
     def create_element(self):
         head_lb = "<%s" % self.element_type
