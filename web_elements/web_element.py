@@ -3,14 +3,15 @@ from .web_classes import WebClasses
 
 class WebElement:
 
-    def __init__(self, element_type):
+    def __init__(self, element_type, parent=None):
         super().__init__()
         self.element_type = element_type
         self.content = ""
         self.classnames = WebClasses()
+        self.parent = parent
 
-    def set_content(self, text):
-        self.content = text
+    def set_content(self, content):
+        self.content = content
 
     def get_element_properties(self):
         classnames = self.classnames

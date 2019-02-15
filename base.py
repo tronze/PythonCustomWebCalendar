@@ -15,7 +15,7 @@ class BaseCalendar(Calendar):
 
     def print_month(self, month):
         # Get month information
-        weeks = self.monthdays2calendar(year=self.year, month=month)
+        weeks = self.get_weeks(month)
         # Print year, month information
         print("%s, %s" %(month_name[month], self.year))
         # Print firstweekday to end of weekday first to format like a calendar.
