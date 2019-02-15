@@ -1,4 +1,4 @@
-from web_elements.web_element import WebElement
+from ..web_element import WebElement
 
 
 class TdElement(WebElement):

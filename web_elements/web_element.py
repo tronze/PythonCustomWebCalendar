@@ -1,4 +1,4 @@
-from web_elements.node import Node
+from .node import Node
 from .web_classes import WebClasses
 
 

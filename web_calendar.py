@@ -1,13 +1,13 @@
 from calendar import month_name, day_name
 
-from base import BaseCalendar
-from web_elements.content import Content
-from web_elements.div import DivElement
-from web_elements.table import TableElement
-from web_elements.table.tbody import TbodyElement
-from web_elements.table.td import TdElement
-from web_elements.table.tr import TrElement
-from web_elements.web_classes import WebClasses
+from .base import BaseCalendar
+from .web_elements.content import Content
+from .web_elements.div import DivElement
+from .web_elements.table.table import TableElement
+from .web_elements.table.tbody import TbodyElement
+from .web_elements.table.td import TdElement
+from .web_elements.table.tr import TrElement
+from .web_elements.web_classes import WebClasses
 
 
 class WebCalendar(BaseCalendar):
@@ -23,9 +23,6 @@ class WebCalendar(BaseCalendar):
 
         table = TableElement()
 
-        classnames = WebClasses()
-        classnames.add_classname("col")
-
         columns = list()
         # Print firstweekday to end of weekday first to format like a calendar.
         for dayname in range(self.firstweekday, len(day_name)):
@@ -33,8 +30,7 @@ class WebCalendar(BaseCalendar):
         # Print rest of the weekday before firstweekday.
         for dayname in range(0, self.firstweekday):
             columns.append(day_name[dayname])
-        table.create_columns(columns, classnames)
-
+        table.create_columns(columns)
 
         tbody = TbodyElement()
         # Print days except the situation when day is 0 as 0 means not a day in the month.
@@ -42,7 +38,6 @@ class WebCalendar(BaseCalendar):
             tr = TrElement()
             for day, weekday in week:
                 td = TdElement()
-                td.set_classnames(classnames)
                 # Print nothing for noday in month
                 if day is 0:
                     td.insert_node(Content(""))
@@ -52,4 +47,8 @@ class WebCalendar(BaseCalendar):
                 tr.insert_node(td)
             tbody.insert_node(tr)
         table.insert_node(tbody)
+        classnames = WebClasses()
+        classnames.add_classname("table")
+        classnames.add_classname("table-bordered")
+        table.set_classnames(classnames)
         return div.create_element() + table.create_element()

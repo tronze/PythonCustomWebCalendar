@@ -1,9 +1,9 @@
-from web_elements.content import Content
-from web_elements.table.th import ThElement
-from web_elements.table.thead import TheadElement
-from web_elements.table.tr import TrElement
-from web_elements.web_classes import WebClasses
-from web_elements.web_element import WebElement
+from ..content import Content
+from .th import ThElement
+from .thead import TheadElement
+from .tr import TrElement
+from ..web_classes import WebClasses
+from ..web_element import WebElement
 
 
 class TableElement(WebElement):
