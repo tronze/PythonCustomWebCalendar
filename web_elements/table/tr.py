@@ -1,7 +1,8 @@
 from web_elements.web_element import WebElement
 
 
-class TableElement(WebElement):
+class TrElement(WebElement):
+
     TR = 'tr'
 
     def __init__(self):
