@@ -10,9 +10,6 @@ class WebElement:
         self.classnames = WebClasses()
         self.parent = parent
 
-    def set_content(self, content):
-        self.content = content
-
     def get_element_properties(self):
         classnames = self.classnames
         class_property = classnames.create_classnames_property()
